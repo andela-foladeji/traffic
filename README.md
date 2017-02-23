@@ -1,2 +1,2 @@
-# traffic-signals
-Traffic signals at an intersection challange
+# Traffic Lights
+Traffic lights at an intersection challange

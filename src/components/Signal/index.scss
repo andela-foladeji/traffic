@@ -1,0 +1,22 @@
+@import '../../styles/01-settings/__imports.scss';
+@import '../../styles/02-tools/__imports.scss';
+
+.signal {
+  width: rem(50px);
+  height: rem(50px);
+  border-radius: 50%;
+  background: rgba(white, 0.6);
+  border: 1px solid lighten(black, 10);
+
+  &.stop {
+    background: $signalStop;
+  }
+
+  &.getReady {
+    background: $signalGetReady;
+  }
+
+  &.go {
+    background: $signalGo;
+  }
+}
