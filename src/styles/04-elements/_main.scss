@@ -1,8 +1,8 @@
 /* --------------------------------------------------
-// 04/ELEMENTS - IMPORTS
+// 04/ELEMENTS - MAIN
 // -------------------------------------------------- */
 
-@import "html";
-@import "headings";
-@import "links";
-@import "main";
+main {
+  position: relative;
+  height: calc(100vh - 72px);
+}

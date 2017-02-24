@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "stylelint": "stylelint src/**/*.scss",
-    "test": "mocha --compilers js:babel-register --require ignore-styles ./src/**/*.spec.js",
+    "test": "NODE_PATH=./src mocha --compilers js:babel-register --require ignore-styles ./src/**/**/*.spec.js --recursive",
     "start": "webpack-dev-server",
     "build": "webpack -p"
   },
