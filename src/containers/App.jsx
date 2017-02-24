@@ -7,6 +7,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      isActive: true,
+      waitForGetReady: true,
     };
   }
   render() {
