@@ -5,7 +5,10 @@ import './index.scss';
 class TrafficLight extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      display: false,
+    };
+    this.getClass = this.getClass.bind(this);
   }
 
   componentWillMount() {
@@ -22,23 +25,24 @@ class TrafficLight extends Component {
     }
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      this.counter = (this.counter + 1) % 4;
-      this.setState({
-        current: this.props.allStates[this.counter],
-      });
-    }, this.state.current.time);
-  }
-
   getClass(classToSignal) {
-    if (this.state.current.classToDisplay.indexOf(classToSignal) >= 0) {
+    if (this.state.current.classToDisplay.indexOf(classToSignal) >= 0
+        && this.props.display) {
       return classToSignal;
     }
     return '';
   }
 
   render() {
+    if (this.props.display) {
+      setTimeout(() => {
+        this.counter = (this.counter + 1) % 4;
+        this.setState({
+          current: this.props.allStates[this.counter],
+        });
+      }, this.state.current.time);
+    }
+
     const classNames = classnames('trafficLight', this.props.direction);
     return (
       <div className={classNames}>
@@ -52,6 +56,7 @@ class TrafficLight extends Component {
 
 TrafficLight.propTypes = {
   direction: PropTypes.string.isRequired,
+  display: PropTypes.bool.isRequired,
   allStates: PropTypes.arrayOf(PropTypes.shape({
     classToDisplay: PropTypes.array.isRequired,
     time: PropTypes.number.isRequired,
